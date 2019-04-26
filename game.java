@@ -1,33 +1,39 @@
+import java.util.HashMap;
 import java.util.Scanner;
 public class game {
-static int pscore=0;
-static int cscore=0;
-Scanner player= new Scanner(System.in); 
-static String cotvet="";	
+    static int pscore=0;
+    static int cscore=0;
 
 
-	public static void g(){
-String potvet= player.nextLine();
-int rand=(int)(Math.random()*3);
-if(rand==0){
-cotvet="Камень";	
-}else if(rand==1){
-cotvet="Ножницы";	
-}else if(rand==2){
-cotvet="Бумага";	
-}if (cotvet.equals(potvet)){
-	System.out.println("Ничья");
-}else if (potvet.equals(Ножницы) && cotvet.equals("Бумага") || potvet.equals("Камень") && cotvet.equals("Ножницы") || potvet.equals("Бумага") && cotvet.equals("Камень")){
-	System.out.println("Игрок победил");
-}else if(cotvet.equals("Ножницы") && potvet.equals("Бумага") || cotvet.equals("Камень") && potvet.equals("Ножницы") || cotvet.equals("Бумага") && potvet.equals("Камень")){
-	System.out.println("Компьютер победил");
-}}
+
+    public static void g(){
+        Scanner player= new Scanner(System.in);
+        static String cotvet="";
+        String potvet= player.nextLine();
+        int rand=(int)(Math.random()*3);
+        HashMap<Integer, String> weapons = new HashMap();
+weapons.put(0,"РЅРѕР¶РЅРёС†С‹");
+weapons.put(1,"Р±СѓРјР°РіР°");
+weapons.put(2,"РєР°РјРµРЅСЊ");
+        if(rand==0){
+            cotvet=weapons.get(0);
+        }else if(rand==1){
+            cotvet=weapons.get(1);
+        }else if(rand==2){
+            cotvet=weapons.get(2);
+        }if (cotvet.equals(potvet)){
+            System.out.println("РЅРёС‡СЊСЏ");
+        }else if (potvet.equals(weapons.get(0)) && cotvet.equals(weapons.get(1)) || potvet.equals(weapons.get(1)) && cotvet.equals(weapons.get(0)) || potvet.equals("РЅРѕР¶РЅРёС†С‹") && cotvet.equals("Р±СѓРјР°РіР°")){
+            System.out.println("РёРіСЂРѕРє РїРѕР±РµРґРёР»");
+        }else if(cotvet.equals("ГЌГ®Г¦Г­ГЁГ¶Г»") && potvet.equals("ГЃГіГ¬Г ГЈГ ") || cotvet.equals("ГЉГ Г¬ГҐГ­Гј") && potvet.equals("ГЌГ®Г¦Г­ГЁГ¶Г»") || cotvet.equals("ГЃГіГ¬Г ГЈГ ") && potvet.equals("ГЉГ Г¬ГҐГ­Гј")){
+            System.out.println("РєРѕРјРїСЊСЋС‚РµСЂ РїРѕР±РµРґРёР»");
+        }}
 
 System.out.println(potvet);
-	public static void main(String[] args){
-	while(true){
-g();
-System.out.println("Игрок" + pscore);
-System.out.println("Компьютер" + cscore);
-}}
+    public static void main(String[] args){
+        while(true){
+            g();
+            System.out.println("РёРіСЂРѕРє " + pscore);
+            System.out.println("РљРћРњРџР¬Р®РўР•Р  " + cscore);
+        }}
 }
